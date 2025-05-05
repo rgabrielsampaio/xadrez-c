@@ -1,62 +1,59 @@
 #include <stdio.h>
 
-void moverTorre(int colunas) {
-    if (colunas == 0)
+void moverTorre(int casas)
+{
+    if (casas == 0)
         return;
 
     printf("Direita\n");
-    moverTorre(colunas - 1);
+    moverTorre(casas - 1);
 }
 
-void moverBispo(int linhas, int colunas) {
-    if (linhas == 0)
+void moverBispo(int casas) // TO-DO: Aninhamento de loops pendente!!!
+{
+    if (casas == 0)
         return;
 
-    printf("Direita\n");
-
+    printf("Esquerda\n");
     printf("Baixo\n");
-    moverBispo(linhas - 1);
-    moverBispo(colunas - 1);
+    moverBispo(casas - 1);
 }
 
+void moverRainha(int casas)
+{
+    if (casas == 0)
+        return;
 
-int main(){
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
 
-    int rainha = 0;
-    int cavaloBaixo = 0;
-    int cavaloEsq;
+void moverCavalo(int linhas, int colunas) // TO-DO: Lógica de loop errada!!! (Possivelmente mais de 1 função).
+{
+    if (casas == 0)
+        return;
 
+    printf("Esquerda\n");
+    printf("Baixo\n");
+    moverCavalo(casas - 1);
+}
+
+int main()
+{
     printf("Movimentação da Torre\n");
-
     moverTorre(5);
-
     printf("\n");
 
     printf("Movimentação do Bispo\n");
-
     moverBispo(4);
-
     printf("\n");
 
     printf("Movimentação da Rainha\n");
-    
-    do { // Movimentar 8 casas pra esquerda.
-        printf("Esquerda\n");
-        rainha++;
-    } while (rainha < 8);
-
+    moverRainha(8);
     printf("\n");
 
     printf("Movimentação do Cavalo\n");
+    moverCavalo(1);
 
-    for (cavaloEsq = 0; cavaloEsq < 1; cavaloEsq++) { // Movimentar 1 casa pra esquerda.
-        while (cavaloBaixo < 2) // Movimentar 2 casas pra baixo.
-        {
-            printf("Baixo\n");
-            cavaloBaixo++;
-        }
-        printf("Esquerda\n");
-    }
-
-        return 0;
+    return 0;
 }
