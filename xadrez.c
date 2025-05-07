@@ -1,59 +1,51 @@
 #include <stdio.h>
 
-void moverTorre(int casas)
-{
-    if (casas == 0)
-        return;
+// LOOP EXTERNO --> CONTROLA A LINHA
+// LOOP INTERNO --> CONTOLA ELEMENTOS QUE ESTÃO NA LINHA
 
-    printf("Direita\n");
-    moverTorre(casas - 1);
+void movimentoBispo(int j, int i) 
+{
+    j = 4;
+    i = 4;
+    if (i == 0 && j == 0)
+    {
+        continue;
+    }
+    
+    for (int i; i > 0; i--)
+    {
+        printf("Cima\n");
+        if (j > 0)
+        {
+            printf("Direita\n");
+            j--;
+        }
+    }
 }
 
-void moverBispo(int casas) // TO-DO: Aninhamento de loops pendente!!!
-{
-    if (casas == 0)
-        return;
+int main() {
 
-    printf("Esquerda\n");
-    printf("Baixo\n");
-    moverBispo(casas - 1);
-}
-
-void moverRainha(int casas)
-{
-    if (casas == 0)
-        return;
-
-    printf("Esquerda\n");
-    moverRainha(casas - 1);
-}
-
-void moverCavalo(int linhas, int colunas) // TO-DO: Lógica de loop errada!!! (Possivelmente mais de 1 função).
-{
-    if (casas == 0)
-        return;
-
-    printf("Esquerda\n");
-    printf("Baixo\n");
-    moverCavalo(casas - 1);
-}
-
-int main()
-{
-    printf("Movimentação da Torre\n");
-    moverTorre(5);
+    printf("\n");
+    printf("Movimento do Cavalo\n");
     printf("\n");
 
-    printf("Movimentação do Bispo\n");
-    moverBispo(4);
+    // LOOP DO CAVALO
+    for (int i = 1; i > 0; i--) 
+    {
+        for (int j = 2; j > 0; j--)
+        {
+            printf("Cima\n");
+        }
+        printf("Direita\n");
+    }  
+
+    printf("\n");
+    printf("Movimento do Bispo\n");
     printf("\n");
 
-    printf("Movimentação da Rainha\n");
-    moverRainha(8);
-    printf("\n");
 
-    printf("Movimentação do Cavalo\n");
-    moverCavalo(1);
+    // LOOP DO BISPO
+
 
     return 0;
 }
